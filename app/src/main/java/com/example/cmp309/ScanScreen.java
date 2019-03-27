@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 
+import android.content.SharedPreferences;
 import android.nfc.NdefMessage;
 
 import android.nfc.NfcAdapter;
@@ -15,9 +16,12 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
 
+import android.view.View;
 import android.widget.TextView;
 
 import java.io.UnsupportedEncodingException;
+
+import android.widget.Button;
 
 
 public class ScanScreen extends AppCompatActivity {
@@ -27,7 +31,7 @@ public class ScanScreen extends AppCompatActivity {
 
     Context context;
 
-    TextView tvNFCContent;
+    String testString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +40,6 @@ public class ScanScreen extends AppCompatActivity {
 
         context = this;
 
-
-
-
         readFromIntent(getIntent());
 
         pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
@@ -46,6 +47,13 @@ public class ScanScreen extends AppCompatActivity {
         tagDetected.addCategory(Intent.CATEGORY_DEFAULT);
         writeTagFilters = new IntentFilter[] { tagDetected };
 
+        final Button backButton = findViewById(R.id.back_button);
+        backButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                onBackPressed();
+            }
+        });
     }
 
     private void readFromIntent(Intent intent) {
@@ -68,7 +76,8 @@ public class ScanScreen extends AppCompatActivity {
         if (msgs == null || msgs.length == 0) return;
 
         String text = "";
-
+        String test2 = "test";
+        Log.v("test", test2);
         byte[] payload = msgs[0].getRecords()[0].getPayload();
         String textEncoding = ((payload[0] & 128) == 0) ? "UTF-8" : "UTF-16"; // Get the Text Encoding
         int languageCodeLength = payload[0] & 0063; // Get the Language Code, e.g. "en"
@@ -80,8 +89,17 @@ public class ScanScreen extends AppCompatActivity {
             Log.e("UnsupportedEncoding", e.toString());
         }
 
-        tvNFCContent.setText(text);
-    }
+        testString = text;
+        Log.d("NFC INPUT", testString);
+
+        int inputInt = Integer.parseInt(text);
+
+        final Intent intent = new Intent(ScanScreen.this, InformationView.class);
+        intent.putExtra("throughInt", inputInt);
+        startActivity(intent);
+
+
+     }
 
 
 

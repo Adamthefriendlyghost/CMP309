@@ -23,7 +23,7 @@
             android:layout_marginBottom="8dp"
             android:adjustViewBounds="false"
             android:background="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/start_button2"
+            app:layout_constraintBottom_toTopOf="@+id/back_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
             android:layout_marginBottom="100dp"
             android:adjustViewBounds="false"
             android:contentDescription="@string/scan_screen_image_description"
-            app:layout_constraintBottom_toTopOf="@+id/start_button2"
+            app:layout_constraintBottom_toTopOf="@+id/back_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +80,7 @@
             app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
         <Button
-            android:id="@+id/start_button2"
+            android:id="@+id/back_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"

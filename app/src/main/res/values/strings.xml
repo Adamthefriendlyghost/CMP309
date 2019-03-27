@@ -8,4 +8,24 @@
     <string name="scan_screen_info_1">Tap the phone to an \n information point</string>
     <string name="scan_screen_info_2">To learn more</string>
     <string name="back">Back</string>
+
+    <string name="default_image_description">IMAGE DESCRIPTION</string>
+    <string name="default_title">ITEM TITLE</string>
+    <string name="default_info">ITEM INFO</string>
+
+    <string name="casket_image_description">Casket Image</string>
+    <string name="CasketName">Freedom Casket</string>
+    <string name="CasketInfo">
+        This silver casket was presented in 1930 by the provost of the time, Henry Peacock to JM Barrie. \n
+        \n
+        The casket was presented to commemorate the Freedom Of Kirriemuir and was said at the time to be "The Heart" of Kirrie. \n
+    </string>
+
+    <string name="townmodel_image_description">Town Model Image</string>
+    <string name="TownModelName">Town Model</string>
+    <string name="TownModelInfo">
+
+
+    </string>
+
 </resources>
