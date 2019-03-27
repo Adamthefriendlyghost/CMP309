@@ -36,7 +36,7 @@ public class ScanScreen extends AppCompatActivity {
 
         context = this;
 
-        tvNFCContent = (TextView) findViewById(R.id.nfc_contents);
+
 
 
         readFromIntent(getIntent());

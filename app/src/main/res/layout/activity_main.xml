@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-
-
     android:layout_height="match_parent"
     android:background="@color/lightBackground"
     android:orientation="vertical">
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -21,6 +17,7 @@
             android:layout_height="430dp"
             android:adjustViewBounds="false"
             android:background="@drawable/museumsplash"
+            android:contentDescription="@string/splash_image_description"
             app:layout_constraintBottom_toTopOf="@+id/start_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -33,10 +30,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/splash_button"
-            android:text="Start"
+            android:text="@string/start_button"
             android:textAllCaps="true"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -51,11 +48,25 @@
             android:layout_marginTop="21dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/splash_button"
-            android:text="Instructions"
+            android:text="@string/instruction_button"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/start_button" />
+
+        <Button
+            android:id="@+id/ex_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/splash_button"
+            android:text="@string/ex_button"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inst_button" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
