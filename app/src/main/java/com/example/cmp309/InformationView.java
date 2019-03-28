@@ -1,26 +1,29 @@
 package com.example.cmp309;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+
+//Main Class
 public class InformationView extends AppCompatActivity {
 
+    //Declaring Views and Ints
     TextView titleTextView;
     TextView descTextView;
     int inputInt;
 
-    private static ViewPager mpager;
+    //Declaring stuff for the ViewPager
+    private ViewPager mpager;
     private static int curPage = 0;
-
-    private static final Integer[] Pics={R.drawable.cases, R.drawable.townmodel, R.drawable.default_image};
-    private ArrayList<Integer> PicsArray = new ArrayList<Integer>();
+    public static Integer[] Pics={1,2,3,4};
+    public ArrayList<Integer> PicsArray = new ArrayList<Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,16 +42,26 @@ public class InformationView extends AppCompatActivity {
         String display = Integer.toString(inputInt);
         Log.v("OUTPUT", display);
 
-        init();
+
 
         switch(inputInt){
             case 1:
+
+                Pics[0] = R.drawable.cases;
+                Pics[1] = R.drawable.default_image2;
+                Pics[2] = R.drawable.default_image3;
+                Pics[3] = R.drawable.default_image4;
 
                 titleTextView.setText(R.string.CasketName);
                 descTextView.setText(R.string.CasketInfo);
                 break;
 
             case 2:
+
+                Pics[0] = R.drawable.townmodel;
+                Pics[1] = R.drawable.default_image2;
+                Pics[2] = R.drawable.default_image3;
+                Pics[3] = R.drawable.default_image4;
 
                 titleTextView.setText(R.string.TownModelName);
                 descTextView.setText(R.string.TownModelInfo);
@@ -60,6 +73,8 @@ public class InformationView extends AppCompatActivity {
                 descTextView.setText(R.string.default_info);
                 break;
         }
+
+        init();
      }
 
      private void init(){
@@ -85,7 +100,7 @@ public class InformationView extends AppCompatActivity {
              public void run() {
                  handler.post(Update);
              }
-         }, 2500, 2500);
+         }, 4000, 4000);
 
 
 
