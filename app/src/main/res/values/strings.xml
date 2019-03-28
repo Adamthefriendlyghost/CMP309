@@ -24,8 +24,9 @@
     <string name="townmodel_image_description">Town Model Image</string>
     <string name="TownModelName">Town Model</string>
     <string name="TownModelInfo">
-
-
+        This is a model of how Kirriemuir looked in 1604. \n
+        TESTINFO \n
+        TESTINFO \n
     </string>
 
 </resources>

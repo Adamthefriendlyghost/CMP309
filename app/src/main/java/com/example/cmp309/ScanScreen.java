@@ -1,6 +1,6 @@
 package com.example.cmp309;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity;
 
 import android.app.PendingIntent;
 import android.content.Context;
@@ -76,8 +76,8 @@ public class ScanScreen extends AppCompatActivity {
         if (msgs == null || msgs.length == 0) return;
 
         String text = "";
-        String test2 = "test";
-        Log.v("test", test2);
+        String test2 = "slide";
+        Log.v("slide", test2);
         byte[] payload = msgs[0].getRecords()[0].getPayload();
         String textEncoding = ((payload[0] & 128) == 0) ? "UTF-8" : "UTF-16"; // Get the Text Encoding
         int languageCodeLength = payload[0] & 0063; // Get the Language Code, e.g. "en"
