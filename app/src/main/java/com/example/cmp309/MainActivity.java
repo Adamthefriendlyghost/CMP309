@@ -15,7 +15,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Button startButton = findViewById(R.id.start_button);
+        final Button startButton = findViewById(R.id.back_button);
         final Button instButton = findViewById(R.id.inst_button);
         final Button exButton = findViewById(R.id.ex_button);
 
