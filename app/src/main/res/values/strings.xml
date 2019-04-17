@@ -24,9 +24,27 @@
     <string name="townmodel_image_description">Town Model Image</string>
     <string name="TownModelName">Town Model</string>
     <string name="TownModelInfo">
-        This is a model of how Kirriemuir looked in 1604. \n
-        TESTINFO \n
-        TESTINFO \n
+        This is a model of how Kirriemuir looked in the 1600\'s. \n
+        \n
+        The townhouse display gives a window into the history of Kirriemuir town centre. \n
+        The building standing in the centre was originally built as a Tolbooth, but since then it\'s been a Town Jail/Courtroom and also a Chemist before
+        finally serving as a museum to tell the history of the town.
+    </string>
+
+    <string name="bonscott_image_description">Bon Scott Image</string>
+    <string name="BonScottName">Bon Scott</string>
+    <string name="BonScottInfo">
+        Of the numerous famous men and women associated with Kirriemuir, one stands out as iconic in the music industry. \n
+        \n
+        Ronald Belford \'Bon\' Scott is known worldwide as the lead singer of AC/DC from 1974 until his death in 1980. \n
+        Scott lived in Kirriemuir until the age of six, moving to Australia with his family and, after performing in several other bands throughout his twenties he replaced
+        lead singer Dave Evans of AC/DC.\n
+        \n
+        AC/DC\'s popularity grew throughout the 70\'s eventually reaching the top 20\'s in the United States with their 1979 album 'Highway to Hell'.\n
+        However, on the evening of 19th February 1980, Scott died after a night out in London. The album 'Back in Black' was released by AC/DC a few months later
+        as a tribute to Scott, becoming the third best-selling album in history. \n
+        \n
+        Scott is celebrated every year in Kirriemuir during the 'Bonfest' festival hosted by DD8 Music.
     </string>
 
 </resources>

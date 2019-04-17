@@ -82,6 +82,16 @@ public class InformationView extends AppCompatActivity {
 
                 break;
 
+            case 3:
+
+                Pics[0] = R.drawable.default_image;
+                Pics[1] = R.drawable.default_image2;
+                Pics[2] = R.drawable.default_image3;
+                Pics[3] = R.drawable.default_image4;
+
+                titleTextView.setText(R.string.BonScottName);
+                descTextView.setText(R.string.BonScottInfo);
+
             default:
 
                 //Set the defaults, just in case
