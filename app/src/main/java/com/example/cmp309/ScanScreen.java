@@ -77,14 +77,10 @@ public class ScanScreen extends AppCompatActivity {
         //Reading the input as an array of bytes (cause that's how it's held in NFC)
         byte[] payload = msgs[0].getRecords()[0].getPayload();
 
-        //Set up text encoding
-        String textEncoding = ((payload[0] & 128) == 0) ? "UTF-8" : "UTF-16"; // Get the Text Encoding
-        int languageCodeLength = payload[0] & 0063; // Get the Language Code, e.g. "en"
-
         //Ensuring that the text can be encoded
         try {
             // Get the Text
-            text = new String(payload, languageCodeLength + 1, payload.length - languageCodeLength - 1, textEncoding);
+            text = new String(payload, 3, payload.length - 3, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             Log.e("UnsupportedEncoding", e.toString());
         }
@@ -95,10 +91,4 @@ public class ScanScreen extends AppCompatActivity {
         intent.putExtra("throughInt", inputInt);
         startActivity(intent);
      }
-
-
-
-
-
 }
-
