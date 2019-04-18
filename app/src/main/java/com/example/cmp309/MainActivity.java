@@ -1,6 +1,7 @@
 package com.example.cmp309;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -26,8 +27,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         final Button startButton = findViewById(R.id.back_button);
-        final Button instButton = findViewById(R.id.inst_button);
-        final Button exButton = findViewById(R.id.ex_button);
+        final Button aboutButton = findViewById(R.id.about_button);
+        final Button statsButton = findViewById(R.id.stats_button);
 
         final Intent intent = new Intent(MainActivity.this, ScanScreen.class);
 
@@ -38,20 +39,25 @@ public class MainActivity extends Activity {
             }
         });
 
-        instButton.setOnClickListener(new View.OnClickListener(){
+        aboutButton.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v){
-                Toast.makeText(getApplicationContext(), "Instruction", Toast.LENGTH_SHORT).show();
-            }
+            public void onClick(View v){ aboutDialog(); }
         });
 
-        exButton.setOnClickListener(new View.OnClickListener(){
+        statsButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Toast.makeText(getApplicationContext(), Long.toString(casesSeconds), Toast.LENGTH_SHORT).show();
             }
         });
 
+    }
+
+    private void aboutDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("About");
+        builder.setMessage(R.string.about_contents);
+        builder.create().show();
     }
 
 
