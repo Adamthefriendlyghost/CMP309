@@ -8,6 +8,7 @@
     <string name="scan_screen_info_1">Tap the phone to an \n information point</string>
     <string name="scan_screen_info_2">To learn more</string>
     <string name="back">Back</string>
+    <string name="code">Enter Code</string>
     <string name="about_contents">
         This application is for use with NFC tags placed around The Gateway to the Glens Museum in Kirriemuir, Angus. It contains information about the various exhibits around the building
         and is best used in conjunction with a visit to the physical location. \n
@@ -53,5 +54,4 @@
         \n
         Scott is celebrated every year in Kirriemuir during the \'Bonfest\' festival hosted by DD8 Music.
     </string>
-
 </resources>

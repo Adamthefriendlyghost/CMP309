@@ -2,13 +2,12 @@ package com.example.cmp309;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
-
 import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends Activity {
@@ -21,6 +20,9 @@ public class MainActivity extends Activity {
     long casesSeconds;
     long townmodelSeconds;
     long bonscottSeconds;
+
+
+    final CharSequence[] statsItems = {"Freedom Casket", "Town Model", "Bon Scott"};
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,19 +49,11 @@ public class MainActivity extends Activity {
         statsButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Toast.makeText(getApplicationContext(), Long.toString(casesSeconds), Toast.LENGTH_SHORT).show();
+                statsDialog();
             }
         });
 
     }
-
-    private void aboutDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("About");
-        builder.setMessage(R.string.about_contents);
-        builder.create().show();
-    }
-
 
     protected void onResume(){
         super.onResume();
@@ -75,6 +69,47 @@ public class MainActivity extends Activity {
         bonscottSeconds = TimeUnit.MILLISECONDS.toSeconds(bonscott);
 
 
+    }
+
+    private void statsDialog(){
+
+        final AlertDialog.Builder statsbuilder = new AlertDialog.Builder(this);
+        statsbuilder.setTitle("Statistics");
+        statsbuilder.setItems(statsItems, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case 0:
+                        internalDialog("Freedom Casket", casesSeconds);
+                        break;
+
+                    case 1:
+                        internalDialog("Town Model", townmodelSeconds);
+                        break;
+
+                    case 2:
+                        internalDialog("Bon Scott", bonscottSeconds);
+                        break;
+                }
+            }
+        });
+
+        statsbuilder.create().show();
+
+    }
+
+    private void internalDialog(String Internal, long TimeFinal){
+        final AlertDialog.Builder internalBuilder = new AlertDialog.Builder(this);
+        internalBuilder.setTitle(Internal);
+        internalBuilder.setMessage("The total time spent reading this entry is: " + Long.toString(TimeFinal) + " seconds.");
+        internalBuilder.show();
+    }
+
+    private void aboutDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("About");
+        builder.setMessage(R.string.about_contents);
+        builder.create().show();
     }
 
 
