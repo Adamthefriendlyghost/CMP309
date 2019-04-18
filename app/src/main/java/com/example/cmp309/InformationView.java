@@ -1,5 +1,6 @@
 package com.example.cmp309;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -26,6 +28,15 @@ public class InformationView extends AppCompatActivity {
     private static int curPage = 0;
     public static Integer[] Pics={1,2,3,4};
     public ArrayList<Integer> PicsArray = new ArrayList<Integer>();
+
+    long startTime_1;
+    long startTime_2;
+    long startTime_3;
+    long elapsedTime_1;
+    long elapsedTime_2;
+    long elapsedTime_3;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +69,8 @@ public class InformationView extends AppCompatActivity {
         switch(inputInt){
             case 1:
 
+                startTime_1 = System.currentTimeMillis();
+
                 //Sets the images into the array
                 Pics[0] = R.drawable.cases;
                 Pics[1] = R.drawable.default_image2;
@@ -72,6 +85,8 @@ public class InformationView extends AppCompatActivity {
 
             case 2:
 
+                startTime_2 = System.currentTimeMillis();
+
                 Pics[0] = R.drawable.townmodel;
                 Pics[1] = R.drawable.default_image2;
                 Pics[2] = R.drawable.default_image3;
@@ -83,6 +98,8 @@ public class InformationView extends AppCompatActivity {
                 break;
 
             case 3:
+
+                startTime_3 = System.currentTimeMillis();
 
                 Pics[0] = R.drawable.bon_scott_exhibit;
                 Pics[1] = R.drawable.bon_scott;
@@ -144,4 +161,44 @@ public class InformationView extends AppCompatActivity {
              }
          }, 4000, 4000);
     }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        long date = (new Date()).getTime();
+
+
+        if(startTime_1 > 0){
+            elapsedTime_1 = date - startTime_1;
+        }
+        else{
+            elapsedTime_1 = 0;
+        }
+
+        if(startTime_2 > 0){
+            elapsedTime_2 = date - startTime_2;
+        }
+        else{
+            elapsedTime_2 = 0;
+        }
+
+        if(startTime_3 > 0){
+            elapsedTime_3 = date - startTime_3;
+        }
+        else{
+            elapsedTime_3 = 0;
+        }
+
+        SharedPreferences prefs = getSharedPreferences("timer", 0);
+        SharedPreferences.Editor editor = prefs.edit();
+
+        editor.putLong("et1", elapsedTime_1);
+        editor.putLong("et2", elapsedTime_2);
+        editor.putLong("et3", elapsedTime_3);
+        editor.commit();
+    }
+
+
+
+
 }
