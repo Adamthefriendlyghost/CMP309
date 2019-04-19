@@ -79,9 +79,9 @@ public class InformationView extends AppCompatActivity {
 
                 //Sets the images into the array
                 Pics[0] = R.drawable.cases;
-                Pics[1] = R.drawable.default_image2;
-                Pics[2] = R.drawable.default_image3;
-                Pics[3] = R.drawable.default_image4;
+                Pics[1] = R.drawable.cases_face;
+                Pics[2] = R.drawable.cases_info;
+                Pics[3] = R.drawable.cases_other;
 
                 //Sets the text for the TextViews
                 titleTextView.setText(R.string.CasketName);
@@ -94,9 +94,9 @@ public class InformationView extends AppCompatActivity {
                 startTime_2 = System.currentTimeMillis();
 
                 Pics[0] = R.drawable.townmodel;
-                Pics[1] = R.drawable.default_image2;
-                Pics[2] = R.drawable.default_image3;
-                Pics[3] = R.drawable.default_image4;
+                Pics[1] = R.drawable.townhouse_large;
+                Pics[2] = R.drawable.townhouse_street;
+                Pics[3] = R.drawable.townhouse_town;
 
                 titleTextView.setText(R.string.TownModelName);
                 descTextView.setText(R.string.TownModelInfo);

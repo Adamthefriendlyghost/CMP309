@@ -24,9 +24,19 @@
     <string name="casket_image_description">Casket Image</string>
     <string name="CasketName">Freedom Casket</string>
     <string name="CasketInfo">
-        This silver casket was presented in 1930 by the provost of the time, Henry Peacock to JM Barrie. \n
+        This silver casket was presented in 1930 by the provost of the time, Henry Peacock to Sir JM Barrie. \n
+        The casket was presented to commemorate the Freedom Of Kirriemuir and was said at the time to be \"The Heart\" of Kirrie. \n
         \n
-        The casket was presented to commemorate the Freedom Of Kirriemuir and was said at the time to be "The Heart" of Kirrie. \n
+        Sir JM Barrie was the author of Peter Pan, born in 1860 in \'Barrie\'s Birthplace\' only a few minutes walk from the museum. He
+        lived there until the age of eight, moving to Glasgow and then back to Forfar in his teen years. \n
+        \n
+        He used his experiences in his early years, with the death of his brother at a young age, as a base for the writing of \'Peter Pan, or The Boy Who Wouldn\'t Grow Up\'. This stage
+        performance was first debut on the 27th December 1904, with this play then developing into the novel \'Peter and Wendy\'. \n
+        \n
+        The copyright of the various Peter Pan works was transferred to the Great Ormond Street Hospital as a charitable gift by Barrie. \n
+        \n
+        The casket was sold with the contents of his London home under auction in 1938, it was acquired by Angus Council\'s Art Fund and the National Fund for Acquisitions
+        and placed in the museum where it currently sits.
     </string>
 
     <string name="townmodel_image_description">Town Model Image</string>
@@ -36,7 +46,13 @@
         \n
         The townhouse display gives a window into the history of Kirriemuir town centre. \n
         The building standing in the centre was originally built as a Tolbooth, but since then it\'s been a Town Jail/Courtroom and also a Chemist before
-        finally serving as a museum to tell the history of the town.
+        finally serving as a museum to tell the history of the town. \n
+        \n
+        The museum tells the story of both Kirriemuir and the Angus Glens, with its various famous personalities such as Sir JM Barrie, Geologist Sir Charles Lyell and
+        AC/DC singer Bon Scott.\n
+        \n
+        It also contains a display of Treasure Trove finds from around the local area, including a carved six lobed Neolithic stone ball,
+        Gold 15th century Finger Ring, late Bronze Age Sword and collection of silver long cross pennies.
     </string>
 
     <string name="bonscott_image_description">Bon Scott Image</string>
