@@ -14,21 +14,22 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
-//Main Class
 public class InformationView extends AppCompatActivity {
 
-    //Declaring Views and Ints
+    //Declaring the title and description text views to be edited during runtime
     TextView titleTextView;
     TextView descTextView;
+
+    //Declaring the integer for receiving from the Scan Screen
     int inputInt;
 
-    //Declaring stuff for the ViewPager
+    //Declaring variables for the ViewPager
     private ViewPager mpager;
     private static int curPage = 0;
     public static Integer[] Pics={1,2,3,4};
     public ArrayList<Integer> PicsArray = new ArrayList<Integer>();
 
+    //Declaring variables for the Timing function
     long startTime_1;
     long startTime_2;
     long startTime_3;
@@ -37,38 +38,43 @@ public class InformationView extends AppCompatActivity {
     long elapsedTime_3;
 
 
-
-    @Override
+    //The onCreate function for this activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information_view);
 
-        //Error catching for the data coming through the intent
+        //Error catching for the data coming through the Scan Screen
         try{
+
+            //Get the data from the intent, hopefully an int 1-3, then save as a local variable
             int data = getIntent().getExtras().getInt("throughInt");
             inputInt = data;
+
         }catch(Exception e){
+
+            //If it's not 1-3, then output an error and save the variable as 0 to satisfy further functions
             Log.e("ERROR", "ERROR");
+            inputInt = 0;
         }
 
-        //Setting up the TextViews
+        //Setting up the TextViews for the Title and the Description
         titleTextView = (TextView)findViewById(R.id.titleTV);
         descTextView = (TextView)findViewById(R.id.descTV);
 
-        //Setting up the Back Button
-        final Button backButton = findViewById(R.id.back_button);
+        //Setting up the Back Button to take the user back to the ScanScreen
+        Button backButton = findViewById(R.id.back_button);
         backButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                onBackPressed();
+                finish();
             }
         });
-
 
         //Switch to set the page to the desired exhibit
         switch(inputInt){
             case 1:
 
+                //Start the timer
                 startTime_1 = System.currentTimeMillis();
 
                 //Sets the images into the array
@@ -77,7 +83,7 @@ public class InformationView extends AppCompatActivity {
                 Pics[2] = R.drawable.default_image3;
                 Pics[3] = R.drawable.default_image4;
 
-                //Sets the text to the TextViews
+                //Sets the text for the TextViews
                 titleTextView.setText(R.string.CasketName);
                 descTextView.setText(R.string.CasketInfo);
 
@@ -153,6 +159,7 @@ public class InformationView extends AppCompatActivity {
 
          //Setting a timer to switch pictures automatically
          Timer swipeTimer = new Timer();
+
          //Schedule the timers task to post the update to the handler every 4000ms
          swipeTimer.schedule(new TimerTask() {
              @Override
@@ -162,12 +169,14 @@ public class InformationView extends AppCompatActivity {
          }, 4000, 4000);
     }
 
-    @Override
+    //Ensuring the timer is properly saved when the user leaves the activity
     protected void onPause(){
         super.onPause();
+
+        //Get the current time on the device, for the timer
         long date = (new Date()).getTime();
 
-
+        //If and else statements to calculate the time taken on each section
         if(startTime_1 > 0){
             elapsedTime_1 = date - startTime_1;
         }
@@ -189,16 +198,28 @@ public class InformationView extends AppCompatActivity {
             elapsedTime_3 = 0;
         }
 
-        SharedPreferences prefs = getSharedPreferences("timer", 0);
-        SharedPreferences.Editor editor = prefs.edit();
+        //Setting up a separate thread to save the timer into the Shared Preference
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                SharedPreferences prefs = getSharedPreferences("timer", 0);
+                long et1 = prefs.getLong("et1", 0);
+                long et2 = prefs.getLong("et2", 0);
+                long et3 = prefs.getLong("et3", 0);
 
-        editor.putLong("et1", elapsedTime_1);
-        editor.putLong("et2", elapsedTime_2);
-        editor.putLong("et3", elapsedTime_3);
-        editor.commit();
+                SharedPreferences.Editor editor = prefs.edit();
+
+                if(elapsedTime_1 > 0){
+                    editor.putLong("et1", elapsedTime_1 + et1);
+                }
+                if(elapsedTime_2 > 0) {
+                    editor.putLong("et2", elapsedTime_2 + et2);
+                }
+                if(elapsedTime_3 > 0) {
+                    editor.putLong("et3", elapsedTime_3 + et3);
+                }
+                editor.commit();
+            }
+        }).start();
     }
-
-
-
-
 }

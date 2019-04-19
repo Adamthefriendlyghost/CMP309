@@ -14,7 +14,6 @@ import android.view.View;
 import java.io.UnsupportedEncodingException;
 import android.widget.Button;
 
-//Main function
 public class ScanScreen extends AppCompatActivity {
 
     //Set up Intent for the NFC Contact
@@ -22,8 +21,7 @@ public class ScanScreen extends AppCompatActivity {
     IntentFilter writeTagFilters[];
     Context context;
 
-    //Normal OnCreate Function
-    @Override
+    //Normal OnCreate function for this activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_screen);
@@ -43,10 +41,13 @@ public class ScanScreen extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                onBackPressed();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
             }
         });
     }
+
 
     //Function to deal with reading from the NFC intent
     private void readFromIntent(Intent intent) {
