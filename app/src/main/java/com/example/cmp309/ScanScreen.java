@@ -48,7 +48,6 @@ public class ScanScreen extends AppCompatActivity {
         });
     }
 
-
     //Function to deal with reading from the NFC intent
     private void readFromIntent(Intent intent) {
         String action = intent.getAction();
@@ -73,6 +72,7 @@ public class ScanScreen extends AppCompatActivity {
     //Function to build the message from the previous function
     private void buildTagViews(NdefMessage[] msgs) {
 
+        //Declaring the string to store the message in
         String text="";
 
         //Reading the input as an array of bytes (cause that's how it's held in NFC)
@@ -80,14 +80,18 @@ public class ScanScreen extends AppCompatActivity {
 
         //Ensuring that the text can be encoded
         try {
+
             // Get the Text
             text = new String(payload, 3, payload.length - 3, "UTF-8");
+
         } catch (UnsupportedEncodingException e) {
             Log.e("UnsupportedEncoding", e.toString());
         }
 
+        //Converting the String to an Integer
         int inputInt = Integer.parseInt(text);
 
+        //This leads to the next intent, packaging extra information as the contents of the NFC tag (1-3)
         final Intent intent = new Intent(ScanScreen.this, InformationView.class);
         intent.putExtra("throughInt", inputInt);
         startActivity(intent);

@@ -11,27 +11,30 @@ import java.util.ArrayList;
 
 public class MyAdapter extends PagerAdapter {
 
+    //Set an array list for the resource ids of images for the adapter
     private ArrayList<Integer> images;
+    //Set a layout inflater for this fragment
     private LayoutInflater inflater;
     private Context context;
 
+    //Setting the main adapter function
     public MyAdapter(Context context, ArrayList<Integer> images) {
         this.context = context;
-        this.images=images;
+        this.images = images;
         inflater = LayoutInflater.from(context);
     }
 
-    @Override
+    //Function to remove the image from view once either the user swipes or the time is up
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((View) object);
     }
 
-    @Override
+    //Function to get the number of images in the array, for use in the main function
     public int getCount() {
         return images.size();
     }
 
-    @Override
+    //Create the object for the Image Slider
     public Object instantiateItem(ViewGroup view, int position) {
         View myImageLayout = inflater.inflate(R.layout.slide, view, false);
         ImageView myImage = (ImageView) myImageLayout.findViewById(R.id.image);
@@ -40,7 +43,7 @@ public class MyAdapter extends PagerAdapter {
         return myImageLayout;
     }
 
-    @Override
+    //Implemented abstract method
     public boolean isViewFromObject(View view, Object object) {
         return view.equals(object);
     }

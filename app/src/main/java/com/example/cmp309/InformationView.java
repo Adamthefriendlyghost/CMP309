@@ -202,13 +202,19 @@ public class InformationView extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
+
+                //Open the Shared Preference
                 SharedPreferences prefs = getSharedPreferences("timer", 0);
+
+                //Save the current values to a temporary value
                 long et1 = prefs.getLong("et1", 0);
                 long et2 = prefs.getLong("et2", 0);
                 long et3 = prefs.getLong("et3", 0);
 
+                //Open the editor
                 SharedPreferences.Editor editor = prefs.edit();
 
+                //Save the new value as the current value + the value in this instance
                 if(elapsedTime_1 > 0){
                     editor.putLong("et1", elapsedTime_1 + et1);
                 }
